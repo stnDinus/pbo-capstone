@@ -6,6 +6,9 @@ package id.ac.dinus.a112214433;
 
 /**
  * Frame menu
+ *
+ * Frame halaman utama.
+ * Berguna untuk navigasi.
  */
 public class FrmMenu extends javax.swing.JFrame {
   private String role;
