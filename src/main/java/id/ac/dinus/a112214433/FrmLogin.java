@@ -10,6 +10,9 @@ import java.security.MessageDigest;
 
 /**
  * Frame login
+ *
+ * Frame inisial.
+ * Meminta kredensial penguna.
  */
 public class FrmLogin extends javax.swing.JFrame {
   Connection Con;
