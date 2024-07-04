@@ -52,6 +52,7 @@ public class KoneksiMysql {
    */
   public static void main(String args[]) {
     KoneksiMysql kon = new KoneksiMysql("pbo");
+    @SuppressWarnings("unused")
     Connection c = kon.getConnection();
   }
 
