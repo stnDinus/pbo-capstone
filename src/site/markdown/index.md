@@ -12,6 +12,8 @@ Dokumentasi ini juga menggunakan plugin maven pihak pertama `maven-javadoc-plugi
 Proyek ini menggunakan database mariadb dengan:
 - Nama `pbo`
 - Tabel-tabel sesuai instruksi
+- User `root`
+- Password kosong
 
 Berikut merupakan langkah-langkah konfigurasi database:
 1. Buatlah database mariadb bernama `pbo`.
