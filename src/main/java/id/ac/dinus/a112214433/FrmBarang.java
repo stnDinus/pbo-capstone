@@ -15,8 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Frame barang.
  *
- * @author a112214433
+ * Untuk menyetel (CRUD) rincian himpunan barang.
  */
 public class FrmBarang extends javax.swing.JFrame {
   Connection Con;
@@ -27,9 +28,6 @@ public class FrmBarang extends javax.swing.JFrame {
   private Object[][] dataTable = null;
   private String[] header = { "Kode", "Nama Barang", "Satuan", "Harga", "Stok", "Stok Min" };
 
-  /**
-   * Creates new form FrmBarang
-   */
   public FrmBarang() {
     initComponents();
     open_db();
@@ -38,7 +36,9 @@ public class FrmBarang extends javax.swing.JFrame {
     setTombol(true);
   }
 
-  // method untuk memindahkan data dr table ke form
+  /**
+   * Untuk memindahkan data dari tblBrg ke form
+   */
   private void setField() {
     int row = tblBrg.getSelectedRow();
     txtKode.setText((String) tblBrg.getValueAt(row, 0));
@@ -52,7 +52,9 @@ public class FrmBarang extends javax.swing.JFrame {
     txtStokMin.setText(stokmin);
   }
 
-  // method membuka database server, user, pass, database disesuaikan
+  /**
+   * Setter Con
+   */
   private void open_db() {
     try {
       KoneksiMysql kon = new KoneksiMysql("pbo");
@@ -63,11 +65,12 @@ public class FrmBarang extends javax.swing.JFrame {
     }
   }
 
-  // method baca data dari Mysql dimasukkan ke table pada form
+  /**
+   * Memetakan tabel `barang` dalam database ke tblBrg
+   */
   private void baca_data() {
     try {
       stm = Con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-      // stm = Con.createStatement();
       RsBrg = stm.executeQuery("select * from barang");
       ResultSetMetaData meta = RsBrg.getMetaData();
       int col = meta.getColumnCount();
@@ -98,7 +101,9 @@ public class FrmBarang extends javax.swing.JFrame {
     }
   }
 
-  // untuk mengkosongkan isian data
+  /**
+   * Mengkosongkan form
+   */
   private void kosong() {
     txtKode.setText("");
     txtNama.setText("");
@@ -108,18 +113,25 @@ public class FrmBarang extends javax.swing.JFrame {
     txtStokMin.setText("");
   }
 
-  // mengset aktif tidak isian data
+  /**
+   * Menyetel jika form interaktif
+   *
+   * @param x aktif atau tidak
+   */
   private void aktif(boolean x) {
     txtKode.setEditable(x);
     txtNama.setEditable(x);
-    // cmbSatuan.setEditable(x);
     cmbSatuan.setEnabled(x);
     txtHarga.setEditable(x);
     txtStok.setEditable(x);
     txtStokMin.setEditable(x);
   }
 
-  // mengset tombol on/off
+  /**
+   * Menyetel jika tombol interaktif
+   *
+   * @param t aktif atau tidak
+   */
   private void setTombol(boolean t) {
     cmdTambah.setEnabled(t);
     cmdKoreksi.setEnabled(t);
