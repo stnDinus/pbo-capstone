@@ -4,21 +4,33 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Kelas pembantu database
+ */
 public class KoneksiMysql {
   String url, usr, pwd, dbn;
 
+  /**
+   * @param dbn nama database yang akan digunakan
+   */
   public KoneksiMysql(String dbn) {
     this.url = "jdbc:mysql://localhost/" + dbn;
-    this.usr = "root"; // Sesuaikan dengan username db anda
-    this.pwd = ""; // Sesuaikan dengan password db anda
+    this.usr = "root";
+    this.pwd = "";
   }
 
+  /**
+   * @param dbn nama database yang akan digunakan
+   */
   public KoneksiMysql(String host, String user, String pass, String dbn) {
     this.url = "jdbc:mysql://" + host + "/" + dbn;
     this.usr = user;
     this.pwd = pass;
   }
 
+  /**
+   * @return koneksi sql baru
+   */
   public Connection getConnection() {
     Connection con = null;
     try {
@@ -35,8 +47,11 @@ public class KoneksiMysql {
     return con;
   }
 
+  /**
+   * Tidak digunakan
+   */
   public static void main(String args[]) {
-    KoneksiMysql kon = new KoneksiMysql("pbo"); // Sesuaikan dengan nama database anda
+    KoneksiMysql kon = new KoneksiMysql("pbo");
     Connection c = kon.getConnection();
   }
 
