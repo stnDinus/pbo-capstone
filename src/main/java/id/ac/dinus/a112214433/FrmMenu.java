@@ -5,25 +5,27 @@
 package id.ac.dinus.a112214433;
 
 /**
- *
- * @author a112214433
+ * Frame menu
  */
 public class FrmMenu extends javax.swing.JFrame {
   private String role;
 
-  /**
-   * Creates new form NewJFrame
-   */
   public FrmMenu() {
     initComponents();
   }
 
+  /**
+   * @param role user atau admin
+   */
   public FrmMenu(String role) {
     initComponents();
     this.role = role;
     setAccessBasedOnRole();
   }
 
+  /**
+   * Setel hak akses berdasarkan role
+   */
   private void setAccessBasedOnRole() {
     if (role.equals("admin")) {
       // Tampilkan semua menu
