@@ -8,7 +8,14 @@ import java.sql.SQLException;
  * Kelas pembantu database
  */
 public class KoneksiMysql {
-  String url, usr, pwd, dbn;
+  /** URL jdbc database */
+  String url;
+  /** nama user database */
+  String usr;
+  /** password user database */
+  String pwd;
+  /** nama database */
+  String dbn;
 
   /**
    * @param dbn nama database yang akan digunakan
