@@ -13,21 +13,25 @@ import javax.swing.table.DefaultTableModel;
  * @author a112214433
  */
 public class FrmSelectBarang extends javax.swing.JFrame {
+  /** Koneksi database */
   Connection Con;
+  /** Himpunan barang */
   ResultSet RsBrg;
+  /** Statement SQL */
   Statement stm;
+  /** Instansi {@link FrmTransaksi} */
   public FrmTransaksi fAB = null;
+  /** Isi {@link tblBrg} */
   private Object[][] dataTable = null;
+  /** Header untuk {@link tblBrg} */
   private String[] header = { "Kode", "Nama Barang", "Satuan", "Harga", "Harga Beli", "Stok", "Stok Min" };
 
-  /**
-   * Creates new form FrmSelectBarang
-   */
   public FrmSelectBarang() {
     initComponents();
     baca_data();
   }
 
+  /** Setter {@link Con} */
   private void open_db() {
     try {
       KoneksiMysql kon = new KoneksiMysql("pbo");
@@ -37,6 +41,7 @@ public class FrmSelectBarang extends javax.swing.JFrame {
     }
   }
 
+  /** Isi {@link tblBrg} dengan barang-barang dalam database */
   private void baca_data() {
     open_db();
     try {
