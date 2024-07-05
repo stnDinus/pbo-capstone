@@ -20,12 +20,19 @@ import javax.swing.table.DefaultTableModel;
  * Untuk menyetel (CRUD) rincian himpunan barang.
  */
 public class FrmBarang extends javax.swing.JFrame {
+  /** Koneksi jdbc */
   Connection Con;
+  /** himpunan barang database */
   ResultSet RsBrg;
+  /** Statement SQL */
   Statement stm;
+  /** String satuan */
   String sSatuan;
+  /** Jika pengguna dapat menyetel form */
   Boolean edit = false;
+  /** Isi {@link tblBrg} */
   private Object[][] dataTable = null;
+  /** Header dari {@link tblBrg} */
   private String[] header = { "Kode", "Nama Barang", "Satuan", "Harga", "Stok", "Stok Min" };
 
   public FrmBarang() {
@@ -37,7 +44,7 @@ public class FrmBarang extends javax.swing.JFrame {
   }
 
   /**
-   * Untuk memindahkan data dari tblBrg ke form
+   * Untuk memindahkan data dari {@link tblBrg} ke form
    */
   private void setField() {
     int row = tblBrg.getSelectedRow();
@@ -53,7 +60,7 @@ public class FrmBarang extends javax.swing.JFrame {
   }
 
   /**
-   * Setter Con
+   * Setter {@link Con}
    */
   private void open_db() {
     try {
@@ -66,7 +73,7 @@ public class FrmBarang extends javax.swing.JFrame {
   }
 
   /**
-   * Memetakan tabel `barang` dalam database ke tblBrg
+   * Memetakan tabel `barang` dalam database ke {@link tblBrg}
    */
   private void baca_data() {
     try {
