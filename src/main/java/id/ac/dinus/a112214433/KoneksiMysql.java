@@ -18,7 +18,7 @@ public class KoneksiMysql {
   String dbn;
 
   /**
-   * @param dbn nama database yang akan digunakan
+   * @param dbn {@link dbn}
    */
   public KoneksiMysql(String dbn) {
     this.url = "jdbc:mysql://localhost/" + dbn;
@@ -27,7 +27,7 @@ public class KoneksiMysql {
   }
 
   /**
-   * @param dbn nama database yang akan digunakan
+   * @param dbn {@link dbn}
    */
   public KoneksiMysql(String host, String user, String pass, String dbn) {
     this.url = "jdbc:mysql://" + host + "/" + dbn;
