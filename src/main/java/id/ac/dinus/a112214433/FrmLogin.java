@@ -15,6 +15,7 @@ import java.security.MessageDigest;
  * Meminta kredensial penguna.
  */
 public class FrmLogin extends javax.swing.JFrame {
+  /** Koneksi jdbc */
   Connection Con;
 
   public FrmLogin() {
@@ -44,7 +45,7 @@ public class FrmLogin extends javax.swing.JFrame {
   }
 
   /**
-   * Setter kon
+   * Setter {@link Con}
    */
   private void open_db() {
     try {
