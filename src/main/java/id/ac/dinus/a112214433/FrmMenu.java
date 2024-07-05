@@ -19,7 +19,7 @@ public class FrmMenu extends javax.swing.JFrame {
   }
 
   /**
-   * @param role user atau admin
+   * @param role {@link role}
    */
   public FrmMenu(String role) {
     initComponents();
@@ -28,7 +28,7 @@ public class FrmMenu extends javax.swing.JFrame {
   }
 
   /**
-   * Setel hak akses berdasarkan role
+   * Setel hak akses berdasarkan {@link role}
    */
   private void setAccessBasedOnRole() {
     if (role.equals("admin")) {
