@@ -11,6 +11,7 @@ package id.ac.dinus.a112214433;
  * Berguna untuk navigasi.
  */
 public class FrmMenu extends javax.swing.JFrame {
+  /** Hak akses pengguna */
   private String role;
 
   public FrmMenu() {
