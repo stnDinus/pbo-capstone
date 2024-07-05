@@ -21,6 +21,14 @@ Berikut merupakan langkah-langkah konfigurasi database:
 3. (Opsional) cek isi `db.sql`.
 4. Jalankan perintah `mariadb < db.sql` pada terminal.
 
+## Konfigurasi Pengguna
+Dua user yang dapat digunakan pada **frame login**:
+
+| username | role | password |
+| --- | --- | --- |
+| steven | admin | 123 |
+| stnDinus | user | 123 |
+
 ## Dokumentasi Lebih Lanjut
 Dokumentasi rinci interaktif (auto-generated menggunakan *javadoc*) dapat diakses melalui:
 - [Link ini](apidocs/index.html).
