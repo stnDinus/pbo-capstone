@@ -20,11 +20,17 @@ import javax.swing.table.DefaultTableModel;
  * Menyetel(CRUD) data konsumen
  */
 public class FrmKonsumen extends javax.swing.JFrame {
+  /** Koneksi jdbc */
   Connection Con;
+  /** Himpunan database konsumen */
   ResultSet RsKns;
+  /** Statement jdbc */
   Statement stm;
+  /** Jike pengguna dapat menyetel form */
   Boolean edit = false;
+  /** Isi {@link tblBrg} */
   private Object[][] dataTable = null;
+  /** Header dari {@link tblBrg} */
   private String[] header = { "Kode", "Nama", "Alamat", "Kota", "Kode Pos", "Telepon", "Email" };
 
   public FrmKonsumen() {
@@ -36,7 +42,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
   }
 
   /**
-   * Untuk memindahkan data dari tblBrg ke form
+   * Untuk memindahkan data dari {@link tblBrg} ke form
    */
   private void setField() {
     int row = tblBrg.getSelectedRow();
@@ -51,7 +57,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
   }
 
   /**
-   * Setter Con
+   * Setter {@link Con}
    */
   private void open_db() {
     try {
@@ -64,7 +70,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
   }
 
   /**
-   * Memetakan tabel `barang` dalam database ke tblBrg
+   * Memetakan tabel `barang` dalam database ke {@link tblBrg}
    */
   private void baca_data() {
     try {
