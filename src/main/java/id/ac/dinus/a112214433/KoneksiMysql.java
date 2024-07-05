@@ -18,6 +18,8 @@ public class KoneksiMysql {
   String dbn;
 
   /**
+   * Konstruktor singkat
+   *
    * @param dbn {@link dbn}
    */
   public KoneksiMysql(String dbn) {
@@ -27,6 +29,11 @@ public class KoneksiMysql {
   }
 
   /**
+   * Konstruktor rinci
+   *
+   * @param host host database
+   * @param user {@link usr}
+   * @param pass {@link pwd}
    * @param dbn {@link dbn}
    */
   public KoneksiMysql(String host, String user, String pass, String dbn) {
