@@ -17,22 +17,34 @@ import javax.swing.table.DefaultTableModel;
  * Menyetel(CRUD) tabel `jual` dan `djual` pada database
  */
 public class FrmTransaksi extends javax.swing.JFrame {
+  /** Koneksi jdbc */
   Connection Con;
+  /** Himpunan barang database */
   ResultSet RsBrg;
+  /** Himpunan konsumen database */
   ResultSet RsKons;
+  /** Statement SQL */
   Statement stm;
+  /** Prepared statement SQL */
   PreparedStatement pstmt;
+  /** Total transaksi */
   double total = 0;
+  /** Tanggal transaksi */
   String tanggal;
+  /** Jika pengguna dapat menyetel form */
   Boolean edit = false;
+  /** Model {@link tblJual} */
   DefaultTableModel tableModel = new DefaultTableModel(
       new Object[][] {},
       new String[] {
           "Kd Barang", "Nama Barang", "Harga Barang", "Jumlah", "Total"
       });
   // Var Pencarian Kode Barang
+  /** ID barang */
   String idBrg;
+  /** Nama barang */
   String namaBrg;
+  /** Harga barang */
   String hargaBrg;
 
   public FrmTransaksi() {
@@ -61,7 +73,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
   }
 
   /**
-   * Inisialisasikan cmbKd_Kons dengan kode konsumen dalam database
+   * Inisialisasikan {@link cmbKd_Kons} dengan kode konsumen dalam database
    */
   private void baca_konsumen() {
     DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -84,7 +96,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
   }
 
   /**
-   * Inisialisasikan cmbKd_Brg dengan kode barang dalam database
+   * Inisialisasikan {@link cmbKd_Brg} dengan kode barang dalam database
    */
   private void baca_barang() {
     DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -107,7 +119,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
   }
 
   /**
-   * Isi txtNm_Brg dan txtHarga sesuai kode barang yang dipilih
+   * Isi {@link txtNm_Brg} dan txtHarga sesuai kode barang yang dipilih
    *
    * @param xkode kode barang yang dipilih
    */
@@ -144,7 +156,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
   }
 
   /**
-   * Isi txtNama sesuai kode konsumen yang dipilih
+   * Isi {@link txtNama} sesuai kode konsumen yang dipilih
    *
    * @param xkode kode konsumen yang dipilih
    */
@@ -216,7 +228,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
   }
 
   /**
-   * Isi txtNoJual dengan nomor transaksi baru
+   * Isi {@link txtNoJual} dengan nomor transaksi baru
    */
   private void nomor_jual() {
     try {
@@ -240,7 +252,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
   }
 
   /**
-   * Masukan rincian input barang ke tblJual
+   * Masukan rincian input barang ke {@link tblJual}
    */
   private void simpan_ditabel() {
     try {
