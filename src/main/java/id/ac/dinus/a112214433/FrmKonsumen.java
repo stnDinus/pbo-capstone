@@ -28,9 +28,9 @@ public class FrmKonsumen extends javax.swing.JFrame {
   Statement stm;
   /** Jike pengguna dapat menyetel form */
   Boolean edit = false;
-  /** Isi {@link tblBrg} */
+  /** Isi {@link tblKons} */
   private Object[][] dataTable = null;
-  /** Header dari {@link tblBrg} */
+  /** Header dari {@link tblKons} */
   private String[] header = { "Kode", "Nama", "Alamat", "Kota", "Kode Pos", "Telepon", "Email" };
 
   public FrmKonsumen() {
@@ -42,18 +42,18 @@ public class FrmKonsumen extends javax.swing.JFrame {
   }
 
   /**
-   * Untuk memindahkan data dari {@link tblBrg} ke form
+   * Untuk memindahkan data dari {@link tblKons} ke form
    */
   private void setField() {
-    int row = tblBrg.getSelectedRow();
+    int row = tblKons.getSelectedRow();
 
-    txtKode.setText((String) tblBrg.getValueAt(row, 0));
-    txtNama.setText((String) tblBrg.getValueAt(row, 1));
-    txtAlamat.setText((String) tblBrg.getValueAt(row, 2));
-    txtKota.setText((String) tblBrg.getValueAt(row, 3));
-    txtKodePos.setText((String) tblBrg.getValueAt(row, 4));
-    txtTelepon.setText((String) tblBrg.getValueAt(row, 5));
-    txtEmail.setText((String) tblBrg.getValueAt(row, 6));
+    txtKode.setText((String) tblKons.getValueAt(row, 0));
+    txtNama.setText((String) tblKons.getValueAt(row, 1));
+    txtAlamat.setText((String) tblKons.getValueAt(row, 2));
+    txtKota.setText((String) tblKons.getValueAt(row, 3));
+    txtKodePos.setText((String) tblKons.getValueAt(row, 4));
+    txtTelepon.setText((String) tblKons.getValueAt(row, 5));
+    txtEmail.setText((String) tblKons.getValueAt(row, 6));
   }
 
   /**
@@ -70,7 +70,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
   }
 
   /**
-   * Memetakan tabel `barang` dalam database ke {@link tblBrg}
+   * Memetakan tabel `barang` dalam database ke {@link tblKons}
    */
   private void baca_data() {
     try {
@@ -99,9 +99,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
         x++;
       }
 
-      tblBrg.setModel(new DefaultTableModel(dataTable, header));
-      // DefaultTableModel model = (DefaultTableModel) tblBrg.getModel();
-      // model.setDataVector(dataTable, header);
+      tblKons.setModel(new DefaultTableModel(dataTable, header));
     } catch (SQLException e) {
       JOptionPane.showMessageDialog(null, e);
     }
@@ -191,7 +189,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
         s.executeUpdate();
       }
 
-      tblBrg.setModel(new DefaultTableModel(dataTable, header));
+      tblKons.setModel(new DefaultTableModel(dataTable, header));
       baca_data();
       aktif(false);
       setTombol(true);
@@ -209,10 +207,6 @@ public class FrmKonsumen extends javax.swing.JFrame {
   private void cmdBatalActionPerformed(java.awt.event.ActionEvent evt) {
     aktif(false);
     setTombol(true);
-  }
-
-  private void tblBrgMouseClicked(java.awt.event.MouseEvent evt) {
-    setField();
   }
 
   private void cmdKoreksiActionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +247,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
+  // <editor-fold defaultstate="collapsed" desc="Generated
   // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -270,7 +265,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
     txtTeleponLabel = new javax.swing.JLabel();
     txtTelepon = new javax.swing.JTextField();
     jScrollPane1 = new javax.swing.JScrollPane();
-    tblBrg = new javax.swing.JTable();
+    tblKons = new javax.swing.JTable();
     cmdTambah = new javax.swing.JButton();
     cmdSimpan = new javax.swing.JButton();
     cmdKoreksi = new javax.swing.JButton();
@@ -304,7 +299,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
     txtTeleponLabel.setText("Telepon");
     txtTeleponLabel.setToolTipText("");
 
-    tblBrg.setModel(new javax.swing.table.DefaultTableModel(
+    tblKons.setModel(new javax.swing.table.DefaultTableModel(
         new Object[][] {
             { null, null, null, null, null, null, null },
             { null, null, null, null, null, null, null },
@@ -323,12 +318,12 @@ public class FrmKonsumen extends javax.swing.JFrame {
         return types[columnIndex];
       }
     });
-    tblBrg.addMouseListener(new java.awt.event.MouseAdapter() {
+    tblKons.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
-        tblBrgMouseClicked(evt);
+        tblKonsMouseClicked(evt);
       }
     });
-    jScrollPane1.setViewportView(tblBrg);
+    jScrollPane1.setViewportView(tblKons);
 
     cmdTambah.setText("Tambah");
     cmdTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -503,6 +498,10 @@ public class FrmKonsumen extends javax.swing.JFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  private void tblKonsMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tblKonsMouseClicked
+    setField();
+  }// GEN-LAST:event_tblKonsMouseClicked
+
   private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtEmailActionPerformed
     // TODO add your handling code here:
   }// GEN-LAST:event_txtEmailActionPerformed
@@ -575,7 +574,7 @@ public class FrmKonsumen extends javax.swing.JFrame {
   private javax.swing.JButton cmdTambah;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable tblBrg;
+  private javax.swing.JTable tblKons;
   private javax.swing.JTextField txtAlamat;
   private javax.swing.JLabel txtAlamatLabel;
   private javax.swing.JTextField txtEmail;
