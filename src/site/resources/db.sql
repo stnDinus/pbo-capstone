@@ -61,7 +61,8 @@ CREATE TABLE `djual` (
   `no_jual` varchar(10) DEFAULT NULL,
   `kd_brg` char(6) DEFAULT NULL,
   `harga_jual` float DEFAULT NULL,
-  `jml_jual` int(4) DEFAULT NULL
+  `jml_jual` int(4) DEFAULT NULL,
+  `pajak` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -72,8 +73,13 @@ CREATE TABLE `djual` (
 LOCK TABLES `djual` WRITE;
 /*!40000 ALTER TABLE `djual` DISABLE KEYS */;
 INSERT INTO `djual` VALUES
-('1','BRG3',1000,30),
-('1','BRG5',50000,5);
+('1','BRG3',1000,30,NULL),
+('1','BRG5',50000,5,NULL),
+('2','BRG2',10000,10,100000),
+('3','BRG1',20000,30,60000),
+('3','BRG2',10000,10,10000),
+('4','BRG1',20000,10,20000),
+('4','BRG2',10000,10,10000);
 /*!40000 ALTER TABLE `djual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +105,10 @@ CREATE TABLE `jual` (
 LOCK TABLES `jual` WRITE;
 /*!40000 ALTER TABLE `jual` DISABLE KEYS */;
 INSERT INTO `jual` VALUES
-('1','K-002','2024-07-01');
+('1','K-002','2024-07-01'),
+('2','K-001','2024-07-15'),
+('3','K-001','2024-07-15'),
+('4','K-001','2024-07-15');
 /*!40000 ALTER TABLE `jual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-07-04 16:01:57
+-- Dump completed on 2024-07-17 19:19:12
